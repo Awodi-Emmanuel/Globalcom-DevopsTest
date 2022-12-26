@@ -53,7 +53,7 @@ helm create [my-helm-chart-project-name]
 
 > Note: Helm generated a template for me to customize it to suite my project reqiurements which in my requirements my two containers were pulled from dockerhub and I configured my ingress manifest to expose the `host` 
 
->I am running my project from my `localhost` The frontend IP would be exposed to `port localhost:4000` while the backend IP would be exposed to `http://localhost:3000`. after modifying my manifest files alround to suites my needs I would dry run to test to see if everything is working fine before installing the helm chart package to my kubernetes cluster:
+>I am running my project from my `localhost` The frontend IP and port would be exposed to `http://localhost:4000` while the backend IP and port would be exposed to `http://localhost:3000`. after modifying my manifest files all alround to suites my needs I would dry run to test to see if everything is working fine before installing the helm chart package to my kubernetes cluster:
 
 
 - Step 5 
