@@ -2,13 +2,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Values.Name }}"
+  name: "{{ .Values.name }}"
   labels:
-    app: "{{ .Values.Name }}"
+    app: "{{ .Values.name }}"
 spec:
   selector:
     matchLabels:
-      app: "{{ .Values.Name }}"
+      app: "{{ .Values.name }}"
   replicas: 2
   strategy:
     type: RollingUpdate
@@ -18,29 +18,29 @@ spec:
   template:
     metadata:
       labels:
-        app: "{{ .Values.Name }}"
+        app: "{{ .Values.name }}"
     spec:
       containers:
-      - name: "{{ .Values.Name }}"
-        image: {{ .Values.Deployment.image }}:{{ .Values.Deployment.tag }}
+      - name: "{{ .Values.name }}"
+        image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
         imagePullPolicy: Always
         ports:
-        - containerPort: 4000
-        {{- if .Values.Deployment.resources }}
+        - containerPort: 3000
+        {{- if .Values.deployment.resources }}
         resources:
-          {{- if .Values.Deployment.resources.requests }}
+          {{- if .Values.deployment.resources.requests }}
           requests:
-            memory: {{ .Values.Deployment.resources.requests.memory | default "50Mi" | quote }}
-            cpu: {{ .Values.Deployment.resources.requests.cpu | default "10m" | quote }}
+            memory: {{ .Values.deployment.resources.requests.memory | default "50Mi" | quote }}
+            cpu: {{ .Values.deployment.resources.requests.cpu | default "10m" | quote }}
           {{- else}}
           requests:
             memory: "50Mi"
             cpu: "10m"
           {{- end}}
-          {{- if .Values.Deployment.resources.limits }}
+          {{- if .Values.deployment.resources.limits }}
           limits:
-            memory: {{ .Values.Deployment.resources.limits.memory | default "1024Mi" | quote }}
-            cpu: {{ .Values.Deployment.resources.limits.cpu | default "1" | quote }}
+            memory: {{ .Values.deployment.resources.limits.memory | default "1024Mi" | quote }}
+            cpu: {{ .Values.deployment.resources.limits.cpu | default "1" | quote }}
           {{- else}}  
           limits:
             memory: "1024Mi"
@@ -55,5 +55,3 @@ spec:
             memory: "1024Mi"
             cpu: "1"
         {{- end}} 
-
-      

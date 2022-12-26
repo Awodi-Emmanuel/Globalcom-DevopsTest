@@ -1,17 +1,17 @@
 deployment:
-  image: "awodi2525/frontend"
-  tag: "latest"
-  
-name: frontend
-
-deploymentBackend:
   image: "awodi2525/backend"
   tag: "latest"
+  
+name: backend
+
+Deployment:
+  image: "awodi2525/frontend"
+  tag: "latest"
 
 
-  # service:
-  #   type: LoadBalancer
-  #   port: 5000
+  service:
+    # type: LoadBalancer
+    port: 4000
   # ingress:
   #   enabled: true
   #   annotations:
@@ -22,4 +22,4 @@ deploymentBackend:
   #   hosts:
   #     - 172.22.145.148
   
-nameBackend: backend
+Name: frontend
