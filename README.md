@@ -62,7 +62,7 @@ Dry run helm-chart to see if there is an issue in the code by typing the below c
 ```
 helm install --dry-run --debug [deployement] .
 ```
-> Note: the deployment in the square bracket can be anyname and the dot specify my current directory which in this case I am already in my-helm-chart-project directory.
+> Note: the deployment in the square bracket can be any name and the dot specify my current directory which in this case I am already in my-helm-chart-project directory.
 
 - Step 6
 From the previous command if everything went well and no errors occours  from any of my manifest files then I would go ahead and install  `[my-helm-chart-project]` to my kubernetes cluster by running the command below command
@@ -84,12 +84,12 @@ helm upgrade deployment .
 
 We can also list our deployment version for every upgrade we have made to our project by typing:
 ```
-helm install history deployment
+helm  history deployment
 ```
 
-We can also rollback our deployments
+We can also rollback our deployments by entrying the pod version we are trying to rollback to.
 ```
-helm rollback deployment [version]
+helm rollback [deployment][version]
 ```
 
 To check our active ingress we run:
